@@ -1,10 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeevitha | Developer & Designer</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Split Section for Dual Skills */
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-box {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .skill-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #eee;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .projects {
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .project-card h3 {
+            color: var(--accent-color);
+        }
+
+        /* Contact Section */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello Jeevitha 👋</h1>
-    <p>MCA Graduate Portfolio</p>
+
+    <header>
+        <h1>Hi, I'm Jeevitha 👋</h1>
+        <p>Bridging the gap between robust logic and beautiful design. I am a Full Stack Python Developer and a Creative Graphic Designer.</p>
+    </header>
+
+    <div class="container">
+        <section class="skills-wrapper">
+            <div class="skill-box">
+                <h2>💻 The Coder</h2>
+                <p>Building scalable backend systems and responsive web interfaces. Experienced in MVC architecture and ERP solutions.</p>
+                <br>
+                <div>
+                    <span class="tag">Python</span>
+                    <span class="tag">Odoo ERP</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Java</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">HTML5 & CSS3</span>
+                </div>
+            </div>
+
+            <div class="skill-box">
+                <h2>🎨 The Designer</h2>
+                <p>Crafting visual experiences, from UI layouts to event branding. Combining technical constraints with aesthetic appeal.</p>
+                <br>
+                <div>
+                    <span class="tag">Adobe Photoshop</span>
+                    <span class="tag">UI/UX Concepts</span>
+                    <span class="tag">Graphic Design</span>
+                    <span class="tag">Photography</span>
+                    <span class="tag">Banner & Poster Design</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Featured Work & Experience</h2>
+            
+            <div class="project-card">
+                <h3>Odoo Administration Module - Coaction Infotech</h3>
+                <p><strong>Role:</strong> Full Stack Python Developer Intern</p>
+                <p>Designed a scalable backend system for collaboration using Python and PostgreSQL. Built responsive interfaces to improve project tracking efficiency.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>ERP-Based Youth Engagement & Fund Management</h3>
+                <p><strong>Role:</strong> Lead Developer</p>
+                <p>Developed a comprehensive platform connecting students, NGOs, and donors featuring 60 custom pages and multi-role dashboards.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>Creative Branding & Design</h3>
+                <p><strong>Role:</strong> Graphic Designer (Digital Promotion Club & Ammu Colour Lab)</p>
+                <p>Designed promotional materials, event invitations, and managed digital assets combining photography and digital editing.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h2>Let's Connect</h2>
+        <p>Email: <a href="mailto:jeevithanataraj36@gmail.com">jeevithanataraj36@gmail.com</a> | Phone: 6385762236</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #aaa;">Based in Coimbatore, Tamil Nadu</p>
+    </footer>
+
 </body>
 </html>
