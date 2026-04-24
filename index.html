@@ -4,50 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeevitha | Developer & Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            --accent-solid: #8b5cf6;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 1s ease-out forwards;
         }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            /* Gradient Text Effect */
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
 
         header p {
             font-size: 1.2rem;
-            color: #bdc3c7;
+            color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
+            font-weight: 300;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--text-main);
         }
 
         /* Split Section for Dual Skills */
@@ -55,126 +83,190 @@
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            margin-top: 3rem;
         }
 
         .skill-box {
             flex: 1;
             min-width: 300px;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--accent-color);
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .skill-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
         .skill-box h2 {
-            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .skill-box p {
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 0.5rem;
         }
 
         .tag {
             display: inline-block;
-            background: #eee;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
+            background: rgba(255,255,255,0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
             margin: 0.3rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
         }
 
-        /* Projects Section */
-        .projects {
-            margin-top: 4rem;
+        .tag:hover {
+            background: var(--accent-solid);
+            color: white;
+            border-color: var(--accent-solid);
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
         }
 
         .project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-color);
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-solid);
         }
 
         .project-card h3 {
-            color: var(--accent-color);
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .project-role {
+            color: var(--accent-solid);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* Contact Section */
         footer {
-            background: var(--primary-color);
-            color: white;
+            background: #0b1120;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 4rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer h2 {
+            margin-bottom: 1.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         footer a {
-            color: var(--accent-color);
+            color: var(--text-main);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-solid);
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header class="animate-fade">
         <h1>Hi, I'm Jeevitha 👋</h1>
         <p>Bridging the gap between robust logic and beautiful design. I am a Full Stack Python Developer and a Creative Graphic Designer.</p>
     </header>
 
     <div class="container">
-        <section class="skills-wrapper">
-            <div class="skill-box">
-                <h2>💻 The Coder</h2>
-                <p>Building scalable backend systems and responsive web interfaces. Experienced in MVC architecture and ERP solutions.</p>
-                <br>
-                <div>
-                    <span class="tag">Python</span>
-                    <span class="tag">Odoo ERP</span>
-                    <span class="tag">PostgreSQL</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">HTML5 & CSS3</span>
+        <section class="animate-fade" style="animation-delay: 0.2s;">
+            <h2 class="section-title">My Expertise</h2>
+            <div class="skills-wrapper">
+                <div class="skill-box">
+                    <h2>💻 The Coder</h2>
+                    <p>Building scalable backend systems and responsive web interfaces. Experienced in MVC architecture and ERP solutions.</p>
+                    <div>
+                        <span class="tag">Python</span>
+                        <span class="tag">Odoo ERP</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML5 & CSS3</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="skill-box">
-                <h2>🎨 The Designer</h2>
-                <p>Crafting visual experiences, from UI layouts to event branding. Combining technical constraints with aesthetic appeal.</p>
-                <br>
-                <div>
-                    <span class="tag">Adobe Photoshop</span>
-                    <span class="tag">UI/UX Concepts</span>
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Photography</span>
-                    <span class="tag">Banner & Poster Design</span>
+                <div class="skill-box">
+                    <h2>🎨 The Designer</h2>
+                    <p>Crafting visual experiences, from UI layouts to event branding. Combining technical constraints with aesthetic appeal.</p>
+                    <div>
+                        <span class="tag">Adobe Photoshop</span>
+                        <span class="tag">UI/UX Concepts</span>
+                        <span class="tag">Graphic Design</span>
+                        <span class="tag">Photography</span>
+                        <span class="tag">Banner & Poster Design</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="projects">
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary-color);">Featured Work & Experience</h2>
-            
-            <div class="project-card">
-                <h3>Odoo Administration Module - Coaction Infotech</h3>
-                <p><strong>Role:</strong> Full Stack Python Developer Intern</p>
-                <p>Designed a scalable backend system for collaboration using Python and PostgreSQL. Built responsive interfaces to improve project tracking efficiency.</p>
-            </div>
+        <section class="animate-fade" style="animation-delay: 0.4s; margin-top: 6rem;">
+            <h2 class="section-title">Featured Work & Experience</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Odoo Administration Module</h3>
+                    <span class="project-role">Full Stack Python Developer Intern @ Coaction Infotech</span>
+                    <p>Designed a scalable backend system for collaboration using Python and PostgreSQL. Built responsive interfaces to improve project tracking efficiency.</p>
+                </div>
 
-            <div class="project-card">
-                <h3>ERP-Based Youth Engagement & Fund Management</h3>
-                <p><strong>Role:</strong> Lead Developer</p>
-                <p>Developed a comprehensive platform connecting students, NGOs, and donors featuring 60 custom pages and multi-role dashboards.</p>
-            </div>
+                <div class="project-card">
+                    <h3>Youth Engagement Platform</h3>
+                    <span class="project-role">Lead Developer</span>
+                    <p>Developed an ERP-based platform connecting students, NGOs, and donors featuring 60 custom pages and multi-role dashboards.</p>
+                </div>
 
-            <div class="project-card">
-                <h3>Creative Branding & Design</h3>
-                <p><strong>Role:</strong> Graphic Designer (Digital Promotion Club & Ammu Colour Lab)</p>
-                <p>Designed promotional materials, event invitations, and managed digital assets combining photography and digital editing.</p>
+                <div class="project-card">
+                    <h3>Creative Branding & Design</h3>
+                    <span class="project-role">Graphic Designer</span>
+                    <p>Designed promotional materials, event invitations, and managed digital assets combining photography and digital editing for various events.</p>
+                </div>
             </div>
         </section>
     </div>
@@ -182,7 +274,7 @@
     <footer>
         <h2>Let's Connect</h2>
         <p>Email: <a href="mailto:jeevithanataraj36@gmail.com">jeevithanataraj36@gmail.com</a> | Phone: 6385762236</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; color: #aaa;">Based in Coimbatore,Tamil Nadu</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Based in Coimbatore, Tamil Nadu</p>
     </footer>
 
 </body>
